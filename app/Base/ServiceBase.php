@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Base;
-
 use Illuminate\Support\Facades\Log;
 
-class ServiceBase
+trait ServiceBase
 {
     public function success($data, $message = null, $code = 200)
     {
@@ -15,14 +14,16 @@ class ServiceBase
         ], $code);
     }
 
-    public function error($message, \Throwable $th, $code = 400)
+    public function error($message, $code = 400, \Throwable $th = null)
     {
-        Log::error($message, [
-            'message' => $th->getMessage(),
-            'file' => $th->getFile(),
-            'line' => $th->getLine(),
-            'trace' => $th->getTraceAsString()
-        ]);
+        if ($th) {
+            Log::error($message, [
+                'message' => $th->getMessage(),
+                'file' => $th->getFile(),
+                'line' => $th->getLine(),
+                'trace' => $th->getTraceAsString()
+            ]);
+        }
         return response()->json([
             'status' => 'error',
             'message' => $message,

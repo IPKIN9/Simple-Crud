@@ -9,7 +9,7 @@
                     <th class="text-writeSecondary w-[210px] text-end">Action</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="pt-[8px]">
                 <tr class="grid grid-cols-[auto,1fr,1fr,auto] gap-x-[8px] px-[12px] py-[4px]">
                     <td class="w-[32px] text-start">No.</td>
                     <td class="text-start">Nama</td>

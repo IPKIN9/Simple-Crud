@@ -18,5 +18,5 @@ yarn-error.log
 /.idea
 /.vscode
 /mysql-data
-composer.log
+*.lock
 *lockb
